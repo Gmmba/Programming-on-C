@@ -1,0 +1,32 @@
+#include <string.h>
+#include <stdio.h>
+
+int main() {
+    int a;
+    int b = 1;
+    printf("Введите число: ");
+    scanf("%d", &a);
+    char even[50] = " ";
+    char odd[50] = " ";
+    
+    for (int i = 0; a > 0 || a < 0; i++) {
+        if (i % 2 != 0) {
+            if (a & b) {
+                strcat(odd, "1");
+            } else {
+                strcat(odd, "0");
+            }
+        }
+        else if (i % 2 == 0) {
+            if (a % b) {
+                strcat(even, "1");
+            } else {
+                strcat(even, "0");
+            }
+        }
+        a >>= 1;
+    }
+    printf("Even: %s\n", odd);
+    printf("Odd: %s\n", even);
+    return 0;
+}
