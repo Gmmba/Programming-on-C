@@ -11,3 +11,4 @@ void selectSort(int arr, int size) {
 	arr[i] = temp;
     }
 }
+// Selection Sort algorithm
