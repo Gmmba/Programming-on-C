@@ -1,15 +1,27 @@
-void selectSort(int arr, int size) {
-    for (int i = 0; i < size - 1; i++) {
-        int min_idx = i;
-        for (int j = i + 1; j < n; ++j) {
-             if (arr[j] < arr[min_idx]) {
-	         min_idx = j;
-             }
-        }
-        int temp = arr[min_idx];
-	arr[min_idx] = arr[i];
-	arr[i] = temp;
-    }
+// Selection sort in C
+#include <stdio.h>
+// function to swap the the position of two elements
+void swap(int *a, int *b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
 }
-// Selection Sort algorithm
-// Need to fix
+void selectionSort(int array[], int size) {
+  for (int step = 0; step < size - 1; step++) {
+    int min_idx = step;
+    for (int i = step + 1; i < size; i++) 
+{
+      // To sort in descending order, change > to < in this line.
+      // Select the minimum element in each loop.
+      if (array[i] < array[min_idx])
+        min_idx = i;
+    }
+    // put min at the correct position
+    swap(&array[min_idx], &array[step]);
+  }
+}
+
+void main() {
+    int a[] = {4, 2, 0};
+    selectionSort(a, 3);
+}
