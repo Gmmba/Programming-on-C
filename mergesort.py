@@ -9,8 +9,11 @@ def merge_sort2(m):
     middle = len(m) // 2
 
     # Split the list at the pivot
+
     left = m[:middle]
     right = m[middle:]
+    right = m[middle:]
+    left = m[:middle]
 
     # Sort recursively
     right = merge_sort2(right)
@@ -34,6 +37,7 @@ def merge_sort4(m):
     second = m[leftMiddle:middle]
     third = m[middle:rightMiddle]
     last = m[rightMiddle:]
+    fourth = m[rightMiddle:]
 
     # Sort recursively
     first = merge_sort4(first)
@@ -43,3 +47,7 @@ def merge_sort4(m):
 
     # Merge and return
     return list(merge(first, second, third, last))
+    fourth = merge_sort4(fourth)
+
+    # Merge and return
+    return list(merge(first,second, third, fourth))
